@@ -17,11 +17,9 @@
         <h3>My Tech Stack</h3>
 
         <ul>
-            <li>PHP</li>
-            <li>Symfony</li>
-            <li>MySQL</li>
-            <li>Docker</li>
-            <li>Git</li>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
         </ul>
     </main>
 {% endblock %}
