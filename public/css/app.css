@@ -17,3 +17,46 @@ h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.1;
 }
+.projects {
+    margin-top: 3rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    padding: 1.5rem;
+    border: 1px solid #dbe2ee;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card a {
+    color: #3547a8;
+    font-weight: 600;
+    text-underline-offset: 0.2em;
+}
+
+.project-card a:focus-visible {
+    outline: 2px solid #3547a8;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .project-card {
+        transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgb(24 34 51 / 10%);
+    }
+}
