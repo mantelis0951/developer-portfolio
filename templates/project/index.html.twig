@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projects | Mantas Serapinas{% endblock %}
+
+{% block body %}
+    <main>
+        <a href="{{ path('app_home') }}">Back to CV</a>
+        <h1>Projects</h1>
+
+        <div class="project-grid">
+            {% for project in projects %}
+                <article class="project-card">
+                    <h2>{{ project.name }}</h2>
+                    <p>{{ project.description }}</p>
+                    <a href="{{ project.url }}">View {{ project.name }} on GitHub</a>
+                </article>
+            {% else %}
+                <p>No published projects yet.</p>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete Project | Admin{% endblock %}
+
+{% block body %}
+    <main class="admin-delete-page">
+        <a href="{{ path('admin_project_index') }}"
+           class="admin-back-link">
+            ← Back to projects
+        </a>
+
+        <section class="delete-card">
+            <div class="delete-icon" aria-hidden="true">!</div>
+
+            <h1>Delete project?</h1>
+
+            <p>
+                Are you sure you want to delete
+                <strong>{{ project.name }}</strong>?
+            </p>
+
+            <p class="delete-warning">
+                This action is permanent and cannot be undone.
+            </p>
+
+            <form method="post"
+                  action="{{ path('admin_project_delete', {id: project.id}) }}">
+
+                <input type="hidden"
+                       name="_token"
+                       value="{{ csrf_token('delete_project_' ~ project.id) }}">
+
+                <div class="delete-actions">
+                    <a href="{{ path('admin_project_index') }}"
+                       class="delete-cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="delete-confirm-btn">
+                        Delete project
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}

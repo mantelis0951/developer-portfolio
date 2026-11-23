@@ -5,34 +5,112 @@
 
 {% block body %}
     <main>
-        <h1>Hi, I'm Mantas 👋</h1>
+        <header class="cv-intro">
+            <h1>Mantas Serapinas</h1>
+            <p class="cv-intro-role">PHP &amp; Symfony Backend Developer</p>
 
-        <h2>PHP & Symfony Backend Developer</h2>
+            <p class="cv-intro-summary">
+                I develop and maintain web applications with PHP and Symfony.
+                My experience includes building features for multilingual websites,
+                developing landing pages, and working with databases.
+            </p>
 
-        <p>
-            I'm a junior PHP developer with
-            one year of professional experience.
-        </p>
-
-        <h3>My Tech Stack</h3>
-
-        <ul>
-            {% for skill in skills %}
-                <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-        <section class="projects">
-            <h2>Projects</h2>
-
-            <div class="project-grid">
-                {% for project in projects %}
-                    <article class="project-card">
-                        <h3>{{ project.name }}</h3>
-                        <p>{{ project.description }}</p>
-                        <a href="{{ project.url }}">View {{ project.name }} on GitHub</a>
-                    </article>
-                {% endfor %}
+            <div class="cv-intro-links">
+                <a class="cv-primary-link" href="{{ path('app_projects') }}">View projects</a>
+                <a href="https://github.com/mantelis0951">GitHub</a>
+                <a href="https://www.linkedin.com/in/mantas-serapinas-099aa01b9/">LinkedIn</a>
             </div>
+        </header>
+        <div class="cv-layout">
+            <div class="cv-history">
+        <section id="experience">
+            <h2>Work Experience</h2>
+
+            <article>
+                <h3>PHP / Symfony Developer · Timber Cabins</h3>
+                <p>
+                    <time datetime="2025-10">Oct 2025</time> –
+                    <time datetime="2026-10">Oct 2026</time>
+                </p>
+
+                <ul>
+                    <li>Contributed to an AI-powered landing page builder that generated editable blocks from text prompts. Users could edit blocks manually or refine them with follow-up prompts.</li>
+                    <li>Maintained Timber Cabins websites across multiple markets and built landing pages for country-specific sites.</li>
+                    <li>Added features, fixed bugs, and updated database records in PHP and Symfony applications. Used Docker for local development.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Microsoft Power Apps Developer · Verslo Architektai</h3>
+                <p>
+                    <time datetime="2023-12">Dec 2023</time> –
+                    <time datetime="2025-10">Oct 2025</time>
+                </p>
+                <p>Developed business applications using Microsoft Power Apps.</p>
+            </article>
+
+            <article>
+                <h3>WordPress / Laravel Developer · Elektroninės informacijos centras</h3>
+                <p>
+                    <time datetime="2022-01">Jan 2022</time> –
+                    <time datetime="2023-06">Jun 2023</time>
+                </p>
+                <p>Built WordPress websites and worked on Laravel applications.</p>
+            </article>
+
+            <article>
+                <h3>Programming and Multimedia Teacher · VIP mokykla</h3>
+                <p>
+                    <time datetime="2022-01">Jan 2022</time> –
+                    <time datetime="2023-06">Jun 2023</time>
+                </p>
+                <p>Taught children the fundamentals of programming and multimedia.</p>
+            </article>
         </section>
+        <section id="education">
+            <h2>Education</h2>
+
+            <article>
+                <h3>SMK College of Applied Sciences</h3>
+                <p>Professional Bachelor’s degree in Programming and Multimedia · 2019–2022</p>
+            </article>
+
+            <article>
+                <h3>Kaunas University of Technology</h3>
+                <p>Software Engineering studies · 2022–2023</p>
+            </article>
+
+            <article>
+                <h3>Kajaani University of Applied Sciences, Finland</h3>
+                <p>Erasmus+ exchange studies in programming · 2021</p>
+            </article>
+        </section>
+            </div>
+
+            <aside class="cv-sidebar" aria-label="Skills and training">
+                <h2>Tech Stack</h2>
+                <ul class="cv-skills">
+                    {% for skill in skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+
+                <section class="cv-training">
+                    <h2>Courses &amp; Training</h2>
+                    <ul>
+                        <li>
+                            <strong>Python Programming · CodeAcademy</strong>
+                            <span>560 hours · <time datetime="2023">2023</time></span>
+                            <a href="/certificates/CodeAcademy_Python_certificate_excerpt.pdf">
+                                View certificate excerpt (PDF)
+                            </a>
+                        </li>
+                        <li>
+                            <strong>C++ Programming</strong>
+                            <span>180 hours · <time datetime="2019">2019</time></span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
     </main>
 {% endblock %}

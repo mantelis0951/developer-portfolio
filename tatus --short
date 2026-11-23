@@ -1,0 +1,125 @@
+src/Controller/AdminProjectController.php:1: trailing whitespace.
+[32m+[m[32m<?php[m[41m[m
+src/Controller/AdminProjectController.php:2: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:3: trailing whitespace.
+[32m+[m[32mnamespace App\Controller;[m[41m[m
+src/Controller/AdminProjectController.php:4: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:5: trailing whitespace.
+[32m+[m[32muse App\Repository\ProjectRepository;[m[41m[m
+src/Controller/AdminProjectController.php:6: trailing whitespace.
+[32m+[m[32muse Symfony\Bundle\FrameworkBundle\Controller\AbstractController;[m[41m[m
+src/Controller/AdminProjectController.php:7: trailing whitespace.
+[32m+[m[32muse Symfony\Component\HttpFoundation\Response;[m[41m[m
+src/Controller/AdminProjectController.php:8: trailing whitespace.
+[32m+[m[32muse Symfony\Component\Routing\Attribute\Route;[m[41m[m
+src/Controller/AdminProjectController.php:9: trailing whitespace.
+[32m+[m[32muse Symfony\Component\Security\Http\Attribute\IsGranted;[m[41m[m
+src/Controller/AdminProjectController.php:10: trailing whitespace.
+[32m+[m[32muse App\Entity\Project;[m[41m[m
+src/Controller/AdminProjectController.php:11: trailing whitespace.
+[32m+[m[32muse App\Form\ProjectType;[m[41m[m
+src/Controller/AdminProjectController.php:12: trailing whitespace.
+[32m+[m[32muse Doctrine\ORM\EntityManagerInterface;[m[41m[m
+src/Controller/AdminProjectController.php:13: trailing whitespace.
+[32m+[m[32muse Symfony\Component\HttpFoundation\Request;[m[41m[m
+src/Controller/AdminProjectController.php:14: trailing whitespace.
+[32m+[m[32muse Symfony\Bridge\Doctrine\Attribute\MapEntity;[m[41m[m
+src/Controller/AdminProjectController.php:15: trailing whitespace.
+[32m+[m[32muse Symfony\Component\Form\Extension\Core\Type\CheckboxType;[m[41m[m
+src/Controller/AdminProjectController.php:16: trailing whitespace.
+[32m+[m[32m#[IsGranted('ROLE_ADMIN')][m[41m[m
+src/Controller/AdminProjectController.php:17: trailing whitespace.
+[32m+[m[32mfinal class AdminProjectController extends AbstractController[m[41m[m
+src/Controller/AdminProjectController.php:18: trailing whitespace.
+[32m+[m[32m{[m[41m[m
+src/Controller/AdminProjectController.php:19: trailing whitespace.
+[32m+[m[32m    #[Route('/admin/projects', name: 'admin_project_index', methods: ['GET'])][m[41m[m
+src/Controller/AdminProjectController.php:20: trailing whitespace.
+[32m+[m[32m    public function index(ProjectRepository $projectRepository): Response[m[41m[m
+src/Controller/AdminProjectController.php:21: trailing whitespace.
+[32m+[m[32m    {[m[41m[m
+src/Controller/AdminProjectController.php:22: trailing whitespace.
+[32m+[m[32m        return $this->render('admin/project/index.html.twig', [[m[41m[m
+src/Controller/AdminProjectController.php:23: trailing whitespace.
+[32m+[m[32m            'projects' => $projectRepository->findAll(),[m[41m[m
+src/Controller/AdminProjectController.php:24: trailing whitespace.
+[32m+[m[32m        ]);[m[41m[m
+src/Controller/AdminProjectController.php:25: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+src/Controller/AdminProjectController.php:26: trailing whitespace.
+[32m+[m[32m    #[Route('/admin/projects/new', name: 'admin_project_new', methods: ['GET', 'POST'])][m[41m[m
+src/Controller/AdminProjectController.php:27: trailing whitespace.
+[32m+[m[32m    public function create(Request $request, EntityManagerInterface $entityManager): Response[m[41m[m
+src/Controller/AdminProjectController.php:28: trailing whitespace.
+[32m+[m[32m    {[m[41m[m
+src/Controller/AdminProjectController.php:29: trailing whitespace.
+[32m+[m[32m        $project = new Project();[m[41m[m
+src/Controller/AdminProjectController.php:30: trailing whitespace.
+[32m+[m[32m        $project->setPublished(false);[m[41m[m
+src/Controller/AdminProjectController.php:31: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:32: trailing whitespace.
+[32m+[m[32m        $form = $this->createForm(ProjectType::class, $project);[m[41m[m
+src/Controller/AdminProjectController.php:33: trailing whitespace.
+[32m+[m[32m        $form->handleRequest($request);[m[41m[m
+src/Controller/AdminProjectController.php:34: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:35: trailing whitespace.
+[32m+[m[32m        if ($form->isSubmitted() && $form->isValid()) {[m[41m[m
+src/Controller/AdminProjectController.php:36: trailing whitespace.
+[32m+[m[32m            $entityManager->persist($project);[m[41m[m
+src/Controller/AdminProjectController.php:37: trailing whitespace.
+[32m+[m[32m            $entityManager->flush();[m[41m[m
+src/Controller/AdminProjectController.php:38: trailing whitespace.
+[32m+[m[32m            $this->addFlash('success', 'Project created successfully.');[m[41m[m
+src/Controller/AdminProjectController.php:39: trailing whitespace.
+[32m+[m[32m            return $this->redirectToRoute('admin_project_index', [], Response::HTTP_SEE_OTHER);[m[41m[m
+src/Controller/AdminProjectController.php:40: trailing whitespace.
+[32m+[m[32m        }[m[41m[m
+src/Controller/AdminProjectController.php:41: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:42: trailing whitespace.
+[32m+[m[32m        return $this->render('admin/project/form.html.twig', [[m[41m[m
+src/Controller/AdminProjectController.php:43: trailing whitespace.
+[32m+[m[32m            'form' => $form,[m[41m[m
+src/Controller/AdminProjectController.php:44: trailing whitespace.
+[32m+[m[32m            'page_title' => 'Add project',[m[41m[m
+src/Controller/AdminProjectController.php:45: trailing whitespace.
+[32m+[m[32m            'submit_label' => 'Save draft',[m[41m[m
+src/Controller/AdminProjectController.php:46: trailing whitespace.
+[32m+[m[32m        ]);[m[41m[m
+src/Controller/AdminProjectController.php:47: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+src/Controller/AdminProjectController.php:48: trailing whitespace.
+[32m+[m[32m    #[Route('/admin/projects/{id}/edit', name: 'admin_project_edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])][m[41m[m
+src/Controller/AdminProjectController.php:49: trailing whitespace.
+[32m+[m[32m    public function edit([m[41m[m
+src/Controller/AdminProjectController.php:50: trailing whitespace.
+[32m+[m[32m        #[MapEntity(id: 'id')] Project $project,[m[41m[m
+src/Controller/AdminProjectController.php:51: trailing whitespace.
+[32m+[m[32m        Request $request,[m[41m[m
+src/Controller/AdminProjectController.php:52: trailing whitespace.
+[32m+[m[32m        EntityManagerInterface $entityManager,[m[41m[m
+src/Controller/AdminProjectController.php:53: trailing whitespace.
+[32m+[m[32m    ): Response {[m[41m[m
+src/Controller/AdminProjectController.php:54: trailing whitespace.
+[32m+[m[32m        $form = $this->createForm(ProjectType::class, $project);[m[41m[m
+src/Controller/AdminProjectController.php:55: trailing whitespace.
+[32m+[m[32m        $form->add('published', CheckboxType::class, [[m[41m[m
+src/Controller/AdminProjectController.php:56: trailing whitespace.
+[32m+[m[32m            'label' => 'Publish on portfolio',[m[41m[m
+src/Controller/AdminProjectController.php:57: trailing whitespace.
+[32m+[m[32m            'required' => false,[m[41m[m
+src/Controller/AdminProjectController.php:58: trailing whitespace.
+[32m+[m[32m        ]);[m[41m[m
+src/Controller/AdminProjectController.php:59: trailing whitespace.
+[32m+[m[32m        $form->handleRequest($request);[m[41m[m
+src/Controller/AdminProjectController.php:60: trailing whitespace.
+[32m+[m[41m[m
+src/Controller/AdminProjectController.php:61: trailing whitespace.
+[32m+[m[32m        if ($form->isSubmitted() && $form->isValid()) {[m[41m[m
+src/Controller/AdminProjectController.php:62: trailing whitespace.
+[32m+[m[32m            $entityManager->flush();[m[41m[m
+src/Controller/AdminProjectContro

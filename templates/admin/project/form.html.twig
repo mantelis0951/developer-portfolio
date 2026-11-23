@@ -1,0 +1,53 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page_title }} | Admin{% endblock %}
+
+{% block body %}
+    <main class="admin-form-page">
+        <header class="admin-form-header">
+            <a href="{{ path('admin_project_index') }}"
+               class="admin-back-link">
+                ← Back to projects
+            </a>
+
+            <p class="admin-eyebrow">PORTFOLIO ADMINISTRATION</p>
+
+            <h1>{{ page_title }}</h1>
+
+            <p class="admin-description">
+                Manage project information and portfolio visibility.
+            </p>
+        </header>
+
+        {{ form_start(form, {attr: {class: 'project-form'}}) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name, {
+            row_attr: {class: 'project-form-field'}
+        }) }}
+
+        {{ form_row(form.description, {
+            row_attr: {class: 'project-form-field'}
+        }) }}
+
+        {{ form_row(form.url, {
+            row_attr: {class: 'project-form-field'}
+        }) }}
+
+        {% if form.published is defined %}
+            {{ form_row(form.published, {
+                row_attr: {class: 'project-form-checkbox'}
+            }) }}
+        {% endif %}
+
+        <div class="admin-form-actions">
+            <button type="submit">{{ submit_label }}</button>
+
+            <a href="{{ path('admin_project_index') }}">
+                Cancel
+            </a>
+        </div>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

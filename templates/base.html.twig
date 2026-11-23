@@ -19,6 +19,29 @@
         {% endif %}
     </head>
     <body>
+    {% set navigation = {
+        app_home: 'CV',
+        app_experience: 'Backend Experience',
+        app_projects: 'Projects'
+    } %}
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+            {% for route, label in navigation %}
+                <li>
+                    <a href="{{ path(route) }}"{% if route == app.current_route %} aria-current="page"{% endif %}>
+                        {{ label }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% for message in app.flashes('success') %}
+        <div class="flash-message flash-success" role="status">
+            <span class="flash-icon">✓</span>
+            <span>{{ message }}</span>
+        </div>
+    {% endfor %}
         {% block body %}{% endblock %}
     </body>
 </html>
